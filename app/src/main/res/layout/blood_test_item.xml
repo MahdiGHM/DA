@@ -1,89 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:descendantFocusability="blocksDescendants">
+    android:layout_height="90dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/thumbnail_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/bt2" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.80"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:layout_centerVertical="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_toLeftOf="@+id/active_image"
+        android:layout_toRightOf="@id/thumbnail_image"
+        android:orientation="vertical"
+        android:padding="4dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/blood_test_date"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingRight="10dp"
+            android:textColor="@color/mdtp_ampm_text_color"
+            android:textSize="20sp"
+            tools:text="تاریخ : " />
 
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.15"
-                app:srcCompat="@drawable/delete"
-                android:focusableInTouchMode="true"/>
-
-            <TextView
-                android:id="@+id/blood_test_date"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical|left"
-                android:text="تاریخ"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#FF000000" />
-
-            <TextView
-                android:id="@+id/blood_test_lab_name"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical|right"
-                android:paddingRight="15dp"
-                android:text="نام آزمایشگاه"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#000000" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/blood_test_lab_name"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="@color/mdtp_ampm_text_color"
+            android:textSize="15sp"
+            tools:text="نام آزمایشگاه : " />
 
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.075"
-                app:srcCompat="@drawable/edit"
-                android:focusableInTouchMode="true"/>
-
-            <TextView
-                android:id="@+id/blood_test_hba1c"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical"
-                android:paddingRight="15dp"
-                android:text="HbA1C :"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#000000" />
-            <TextView
-                android:id="@+id/blood_test"
-                android:layout_width="0dp"
-                android:layout_height="0dp" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/blood_test_hba1c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="@color/mdtp_ampm_text_color"
+            android:textSize="15sp"
+            tools:text="HbA1C : " />
+        <TextView
+            android:id="@+id/blood_test"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

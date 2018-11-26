@@ -1119,11 +1119,6 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp">
 
-            <Button
-                android:id="@+id/blood_test_button_u"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="بروز رسانی" />
         </TableRow>
 
     </TableLayout>

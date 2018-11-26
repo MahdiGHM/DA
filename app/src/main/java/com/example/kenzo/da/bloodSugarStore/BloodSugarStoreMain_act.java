@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.kenzo.da.DatabaseHelper;
 import com.example.kenzo.da.R;
 import com.example.kenzo.da.Roozh;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +45,16 @@ public class BloodSugarStoreMain_act extends AppCompatActivity {
         viewAll();
         adapter = new BssCustomAdapter(BloodSugarStoreMain_act.this, data);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(BloodSugarStoreMain_act.this, BloodSugarStoreUpdate_act.class);
+                intent.putExtra("id",data.get(position)[4]);
+                intent.putExtra("value",data.get(position)[0].replaceAll("میزان قند خون : ",""));
+                intent.putExtra("time_span",data.get(position)[3]);
+                startActivity(intent);
+            }
+        });
         FloatingActionButton fab = findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,33 +65,7 @@ public class BloodSugarStoreMain_act extends AppCompatActivity {
         });
         average();
         lineChartView = findViewById(R.id.chart);
-        String[] axisData = new String[data.size()];
-        int[] yAxisData = new int[data.size()];
-        for(int i=0; i < data.size(); i++){
-            axisData[i] = data.get(i)[1].replaceAll("تاریخ : ","");
-            yAxisData[i] = Integer.valueOf(data.get(i)[0].replaceAll("میزان قند خون : ",""));
-        }
-        List yAxisValues = new ArrayList();
-        List axisValues = new ArrayList();
-        Line line = new Line(yAxisValues);
-        line.setColor(Color.parseColor("#9C27B0"));
-        for(int i = 0; i < axisData.length; i++){
-            axisValues.add(i, new AxisValue(i).setLabel(axisData[i]));
-        }
-
-        for (int i = 0; i < yAxisData.length; i++){
-            yAxisValues.add(new PointValue(i, yAxisData[i]));
-        }
-        List lines = new ArrayList();
-        lines.add(line);
-        LineChartData data = new LineChartData();
-        data.setLines(lines);
-        lineChartView.setLineChartData(data);
-        Axis axis = new Axis();
-        axis.setValues(axisValues);
-        data.setAxisXBottom(axis);
-        Axis yAxis = new Axis();
-        data.setAxisYLeft(yAxis);
+        drawGraph();
     }
     @Override
     public void onResume(){
@@ -91,6 +75,7 @@ public class BloodSugarStoreMain_act extends AppCompatActivity {
         viewAll();
         adapter.data=data;
         adapter.notifyDataSetChanged();
+        drawGraph();
     }
     public void average(){
         Cursor res = myDb.get30AvgBssData();
@@ -120,5 +105,34 @@ public class BloodSugarStoreMain_act extends AppCompatActivity {
             tempData[4] = res.getString(0);
             data.add(tempData);
         }
+    }
+    public void drawGraph(){
+        String[] axisData = new String[data.size()];
+        int[] yAxisData = new int[data.size()];
+        for(int i=0; i < data.size(); i++){
+            axisData[i] = data.get(i)[1].replaceAll("تاریخ : ","");
+            yAxisData[i] = Integer.valueOf(data.get(i)[0].replaceAll("میزان قند خون : ",""));
+        }
+        List yAxisValues = new ArrayList();
+        List axisValues = new ArrayList();
+        Line line = new Line(yAxisValues);
+        line.setColor(Color.parseColor("#9C27B0"));
+        for(int i = 0; i < axisData.length; i++){
+            axisValues.add(i, new AxisValue(i).setLabel(axisData[i]));
+        }
+
+        for (int i = 0; i < yAxisData.length; i++){
+            yAxisValues.add(new PointValue(i, yAxisData[i]));
+        }
+        List lines = new ArrayList();
+        lines.add(line);
+        LineChartData data = new LineChartData();
+        data.setLines(lines);
+        lineChartView.setLineChartData(data);
+        Axis axis = new Axis();
+        axis.setValues(axisValues);
+        data.setAxisXBottom(axis);
+        Axis yAxis = new Axis();
+        data.setAxisYLeft(yAxis);
     }
 }

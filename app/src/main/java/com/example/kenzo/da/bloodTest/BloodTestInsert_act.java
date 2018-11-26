@@ -2,8 +2,10 @@ package com.example.kenzo.da.bloodTest;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,23 +20,10 @@ public class BloodTestInsert_act extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.blood_test_insert_act);
-        button = (Button) findViewById(R.id.blood_test_button);
         myDb = new DatabaseHelper(this);
         b = new int[29];
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                asign();
-                boolean isInserted = myDb.insertDataBtData(b,((EditText)(findViewById(R.id.et_lab_name))).getText().toString(),((EditText)(findViewById(R.id.et_date))).getText().toString());
-                if(isInserted) {
-                    Toast.makeText(BloodTestInsert_act.this, "Data Inserted", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-                else
-                    Toast.makeText(BloodTestInsert_act.this,"Data Not Inserted",Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
     public void asign(){
@@ -68,5 +57,41 @@ public class BloodTestInsert_act extends AppCompatActivity {
             b[27] = Integer.parseInt(((EditText) (findViewById(R.id.et_t4))).getText().toString());
             b[28] = Integer.parseInt(((EditText) (findViewById(R.id.et_tsh))).getText().toString());
         }catch (Exception E){}
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_reminder, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem menuItem = menu.findItem(R.id.discard_reminder);
+        menuItem.setVisible(false);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        // User clicked on a menu option in the app bar overflow menu
+        switch (item.getItemId()) {
+            // Respond to a click on the "Save" menu option
+            case R.id.save_reminder:
+                asign();
+                boolean isInserted = myDb.insertDataBtData(b,((EditText)(findViewById(R.id.et_lab_name))).getText().toString(),((EditText)(findViewById(R.id.et_date))).getText().toString());
+                if(isInserted)
+                    Toast.makeText(BloodTestInsert_act.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+
+                else
+                    Toast.makeText(BloodTestInsert_act.this,"Data Not Inserted",Toast.LENGTH_SHORT).show();
+                finish();
+                return true;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(BloodTestInsert_act.this);
+                return true;
+        }
+        return true;
     }
 }
