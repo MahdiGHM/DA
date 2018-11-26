@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:id="@+id/tr1_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_lab_name_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Lab name :"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/et_lab_name_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="4"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr2_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            >
+            <TextView
+                android:id="@+id/tv_date_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Date :"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/et_date_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="4"
+                android:inputType="date" />
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr3_u"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp">
+
+            <TextView
+                android:id="@+id/tv_hba1c_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="HbA1C :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_hba1c_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/tv_unit1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr5_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/tv_wbc_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="WBC :" />
+
+            <EditText
+                android:id="@+id/et_wbc_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit2_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="10*3/µ"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr6_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            >
+            <TextView
+                android:id="@+id/tv_rbc_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="RBC :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_rbc_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit3_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="10*6/µ"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr7_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_hgb_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="HGB :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_hgb_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit4_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="g/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr8_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_hct_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="HCT :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_hct_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit5_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr9_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_mcv_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="MCV :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_mcv_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit6_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="fL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr10_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_mch_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="MCH :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_mch_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit7_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="pg"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr11_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_mchc_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="MCHC :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_mchc_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit8_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="g/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr12_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_platelets_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="PLATELETS :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_platelets_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit9_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="10*3/µL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr13_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_fbs_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="FBS :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_fbs_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit10_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr14_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/rv_urea_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Urea :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_urea_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit11_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr15_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_creatinine_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Creatinine :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_creatinine_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit12_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr16_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_uric_acid_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Uric acid :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_uric_acid_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit13_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr17_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_total_cholesterol_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Total cholesterol :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_total_cholesterol_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit14_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr18_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_triglycerides_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Triglycerides :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_triglycerides_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit15_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr19_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_hdl_cholesterol_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="HDL cholesterol :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_hdl_cholesterol_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit16_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr20_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_ldl_cholesterol_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="LDL cholesterol :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_ldl_cholesterol_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit17_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr21_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_sgot_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="SGOT :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_sgot_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit18_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="U/L"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr22_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_sgpt_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="SGPT :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_sgpt_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit19_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="U/L"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr23_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_alkaline_phosphatase_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Alkaline phosphatase :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_alkaline_phosphatase_u"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit20_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="IU/L"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr24_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_ca_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ca :"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/et_ca_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit21_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr25_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_p_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="P :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_p_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit22_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr26_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_fe_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Fe :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_fe_u"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit23_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="mg/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr27_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_vit_d_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Vit D :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_vit_d_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit24_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="ng/ml"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr28_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_b12_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="B12 :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_b12_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit25_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="pg/ml"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr29_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_t3_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="T3 :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_t3_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit26_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="ng/ml"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr30_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_t4_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="T4 :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_t4_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit27_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="µmol/L"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dip">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="#000000"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr31_u"
+            android:paddingLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/tv_tsh_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TSH :"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/et_tsh_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+            <TextView
+                android:id="@+id/tv_unit28_u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="ng/dL"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tr32"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
+
+            <Button
+                android:id="@+id/blood_test_button_u"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="بروز رسانی" />
+        </TableRow>
+
+    </TableLayout>
+
+
+</ScrollView>

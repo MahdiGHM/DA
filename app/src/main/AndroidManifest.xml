@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.kenzo.da">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launch"
+        tools:replace="android:icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".bloodSugarStore.BloodSugarStoreMain_act"/>
+        <activity android:name=".bloodTest.BloodTestMain_act"/>
+        <activity android:name=".BmiCalMain_act"/>
+        <activity android:name=".CarboCal_act"/>
+        <activity android:name=".AlarmReminder.AlarmReminderMain_act"/>
+        <activity android:name=".insulinDose.InsulinDose_act"/>
+        <activity android:name=".UsefulArticlesMain_act"/>
+        <activity android:name=".bloodSugarStore.BloodSugarStoreInsert_act"/>
+        <activity android:name=".bloodSugarStore.BloodSugarStoreUpdate_act"/>
+        <activity android:name=".insulinDose.InsulinEffect_act"/>
+        <activity android:name=".insulinDose.ModifiedInsulin_act"/>
+        <activity android:name=".insulinDose.InsulinToCarbo_act"/>
+        <activity android:name=".bloodTest.BloodTestInsert_act"/>
+        <activity android:name=".bloodTest.BloodTestUpdate_act"/>
+        <activity android:name=".AlarmReminder.AddReminderActivity"
+            android:label="@string/title_activity_add_reminder"
+            android:parentActivityName=".AlarmReminder.AlarmReminderMain_act"
+            android:theme="@style/AppTheme">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlarmReminder.AlarmReminderMain_act"
+                />
+        </activity>
+        <provider
+            android:name=".AlarmReminder.data.AlarmReminderProvider"
+            android:authorities="com.example.kenzo.da"
+            android:exported="false" />
+
+        <service
+            android:name=".AlarmReminder.reminder.ReminderAlarmService"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
