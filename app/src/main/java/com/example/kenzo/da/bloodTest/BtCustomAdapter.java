@@ -1,14 +1,11 @@
 package com.example.kenzo.da.bloodTest;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.kenzo.da.DatabaseHelper;
@@ -51,9 +48,7 @@ public class BtCustomAdapter extends BaseAdapter {
         public TextView labName;
         public TextView date;
         public TextView id;
-        public ImageButton imageButton3;
-        public ImageButton imageButton4;
-    }
+}
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -65,8 +60,6 @@ public class BtCustomAdapter extends BaseAdapter {
             holder.hba1c = (TextView) vi.findViewById(R.id.blood_test_hba1c);
             holder.date = (TextView) vi.findViewById(R.id.blood_test_date);
             holder.id = (TextView) vi.findViewById(R.id.blood_test);
-            holder.imageButton3 = (ImageButton) vi.findViewById(R.id.imageButton3);
-            holder.imageButton4 = (ImageButton) vi.findViewById(R.id.imageButton4);
             vi.setTag(holder);
         }else
             holder = (BtCustomAdapter.viewHolder) vi.getTag();
@@ -78,41 +71,6 @@ public class BtCustomAdapter extends BaseAdapter {
             holder.date.setText(tempData[2]);
             holder.id.setText(tempData[3]);
         }
-        final AlertDialog.Builder alertBox = new AlertDialog.Builder(context);
-        alertBox.setTitle("حذف یک سطر!                       ");
-        alertBox.setMessage("آیا از حذف این سطر اطمینان دارید؟!");
-        alertBox.setIcon(R.drawable.warning);
-
-        holder.imageButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                alertBox.setNegativeButton("خیر", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                alertBox.setPositiveButton("بله",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        myDb.deleteBTData(Integer.parseInt(data.get(position)[3]));
-                        data.remove(position);
-                        notifyDataSetChanged();
-                    }
-                });
-                alertBox.show();
-            }
-        });
-        holder.imageButton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(context,BloodTestUpdate_act.class);
-                intent.putExtra("id",data.get(position)[3]);
-                context.startActivity(intent);
-            }
-        });
-
         return vi;
     }
 }

@@ -1,10 +1,13 @@
 package com.example.kenzo.da.bloodTest;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,29 +17,17 @@ import com.example.kenzo.da.R;
 public class BloodTestUpdate_act extends AppCompatActivity {
     EditText editText1;
     EditText editText2;
-    Button button;
     DatabaseHelper myDb;
     int[] b;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.blood_test_update);
         myDb = new DatabaseHelper(this);
         editText1 = (EditText) findViewById(R.id.et_lab_name_u);
         editText2 = (EditText) findViewById(R.id.et_date_u);
-        button = (Button) findViewById(R.id.blood_test_button_u);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                asign();
-                boolean isUpdate = myDb.updateBTData(b,Integer.parseInt(getIntent().getStringExtra("id")), editText1.getText().toString(), editText2.getText().toString());
-                if (isUpdate) {
-                    Toast.makeText(BloodTestUpdate_act.this, "Data Updated", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else
-                    Toast.makeText(BloodTestUpdate_act.this, "Data Not Updated", Toast.LENGTH_SHORT).show();
-            }
-        });
+        b = new int[29];
     }
     public void asign(){
         try {
@@ -69,5 +60,54 @@ public class BloodTestUpdate_act extends AppCompatActivity {
             b[27] = Integer.parseInt(((EditText) (findViewById(R.id.et_t4_u))).getText().toString());
             b[28] = Integer.parseInt(((EditText) (findViewById(R.id.et_tsh_u))).getText().toString());
         }catch (Exception e){}
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_reminder, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            // Respond to a click on the "Save" menu option
+            case R.id.save_reminder :
+                asign();
+                boolean isUpdate = myDb.updateBTData(b,Integer.parseInt(getIntent().getStringExtra("id")), editText1.getText().toString(), editText2.getText().toString());
+                if (isUpdate)
+                    Toast.makeText(BloodTestUpdate_act.this, "داده ها بروز رسانی شد", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(BloodTestUpdate_act.this, "خطا در بروز رسانی داده ها", Toast.LENGTH_SHORT).show();
+                finish();
+                return true;
+            case R.id.discard_reminder :
+                final AlertDialog.Builder alertBox = new AlertDialog.Builder(this);
+                alertBox.setTitle("حذف یک سطر!                       ");
+                alertBox.setMessage("آیا از حذف این سطر اطمینان دارید؟!");
+                alertBox.setIcon(R.drawable.warning);
+
+                alertBox.setNegativeButton("خیر", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                alertBox.setPositiveButton("بله",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        myDb.deleteBTData(Integer.parseInt(getIntent().getStringExtra("id")));
+                        finish();
+                    }
+                });
+                alertBox.show();
+                return true;
+            // Respond to a click on the "Up" arrow button in the app bar
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(BloodTestUpdate_act.this);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

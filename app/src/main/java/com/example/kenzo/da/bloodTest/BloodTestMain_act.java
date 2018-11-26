@@ -84,6 +84,15 @@ public class BloodTestMain_act extends AppCompatActivity {
 
             }
         });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(BloodTestMain_act.this, BloodTestUpdate_act.class);
+                intent.putExtra("id",((TextView)(view.findViewById(R.id.blood_test))).getText().toString());
+                startActivity(intent);
+                return true;
+            }
+        });
     }
     public void showMessage(String title,String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -109,7 +118,7 @@ public class BloodTestMain_act extends AppCompatActivity {
             String [] tempData = new String[4];
             tempData[0] = ("آزمایشگاه : "+res.getString(1));
             tempData[1] = ("Hba1C : "+res.getString(3));
-            tempData[2] = (": تاریخ"+"\n"+res.getString(2));
+            tempData[2] = ("تاریخ : "+res.getString(2));
             tempData[3] = res.getString(0);
             data.add(tempData);
         }

@@ -2,13 +2,11 @@ package com.example.kenzo.da.bloodSugarStore;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.kenzo.da.DatabaseHelper;
@@ -51,8 +49,6 @@ public class BssCustomAdapter extends BaseAdapter {
         public TextView bloodsugarStoreItemTime;
         public TextView bloodsugarStoreItemTimespan;
         public TextView bloodsugarStoreItemDate;
-        public ImageButton imageButton1;
-        public ImageButton imageButton2;
     }
 
     @Override
@@ -65,8 +61,6 @@ public class BssCustomAdapter extends BaseAdapter {
             holder.bloodsugarStoreItemDate = (TextView) vi.findViewById(R.id.bloodsugar_store_item_date);
             holder.bloodsugarStoreItemTime = (TextView) vi.findViewById(R.id.bloodsugar_store_item_time);
             holder.bloodsugarStoreItemTimespan = (TextView) vi.findViewById(R.id.bloodsugar_store_item_timespan);
-            holder.imageButton1 = (ImageButton) vi.findViewById(R.id.imageButton1);
-            holder.imageButton2 = (ImageButton) vi.findViewById(R.id.imageButton2);
             vi.setTag(holder);
         }else
             holder = (viewHolder) vi.getTag();
@@ -82,36 +76,6 @@ public class BssCustomAdapter extends BaseAdapter {
         alertBox.setTitle("حذف یک سطر!                       ");
         alertBox.setMessage("آیا از حذف این سطر اطمینان دارید؟!");
         alertBox.setIcon(R.drawable.warning);
-
-        holder.imageButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                alertBox.setNegativeButton("خیر", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                alertBox.setPositiveButton("بله",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        myDb.deleteBssData(Integer.parseInt(data.get(position)[4]));
-                        data.remove(position);
-                        notifyDataSetChanged();
-                    }
-                });
-                alertBox.show();
-            }
-        });
-        holder.imageButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(context,BloodSugarStoreUpdate_act.class);
-                intent.putExtra("id",data.get(position)[4]);
-                context.startActivity(intent);
-            }
-        });
 
         return vi;
     }
