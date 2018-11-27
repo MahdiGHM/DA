@@ -11,10 +11,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -33,10 +36,6 @@ import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.Calendar;
-
-/**
- * Created by delaroy on 10/26/17.
- */
 
 public class AddReminderActivity extends AppCompatActivity implements
         TimePickerDialog.OnTimeSetListener,
@@ -93,6 +92,9 @@ public class AddReminderActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_add_act);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        ((TextView)findViewById(R.id.action_bar_title)).setText("رویداد ها");
 
         Intent intent = getIntent();
         mCurrentReminderUri = intent.getData();
@@ -400,8 +402,13 @@ public class AddReminderActivity extends AppCompatActivity implements
             case R.id.save_reminder:
 
 
-                if (mTitleText.getText().toString().length() == 0){
-                    mTitleText.setError("Reminder Title cannot be blank!");
+                if (mTitleText.getText().toString().length() == 0){ ;
+                    String estring = "Reminder Title cannot be blank!";
+                    ForegroundColorSpan fgcspan = new ForegroundColorSpan(getResources().getColor(R.color.white));
+                    SpannableStringBuilder ssbuilder = new SpannableStringBuilder(estring);
+                    ssbuilder.setSpan(fgcspan, 0, estring.length(), 0);
+                    mTitleText.requestFocus();
+                    mTitleText.setError(ssbuilder);
                 }
 
                 else {
@@ -419,6 +426,7 @@ public class AddReminderActivity extends AppCompatActivity implements
                 // If the reminder hasn't changed, continue with navigating up to parent activity
                 // which is the {@link MainActivity}.
                 if (!mVehicleHasChanged) {
+                    deleteReminder();
                     NavUtils.navigateUpFromSameTask(AddReminderActivity.this);
                     return true;
                 }
