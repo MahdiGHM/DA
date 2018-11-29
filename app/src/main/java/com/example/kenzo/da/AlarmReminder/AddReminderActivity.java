@@ -42,8 +42,6 @@ public class AddReminderActivity extends AppCompatActivity implements
         DatePickerDialog.OnDateSetListener, LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int EXISTING_VEHICLE_LOADER = 0;
-
-
     private EditText mTitleText;
     private TextView mDateText, mTimeText, mRepeatText, mRepeatNoText, mRepeatTypeText;
     private FloatingActionButton mFAB1;
@@ -91,7 +89,7 @@ public class AddReminderActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_add_act);
+        setContentView(R.layout.alarm_reminder_insert_act);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.actionbar);
         ((TextView)findViewById(R.id.action_bar_title)).setText("رویداد ها");
@@ -227,7 +225,7 @@ public class AddReminderActivity extends AppCompatActivity implements
     // On clicking Time picker
     public void setTime(View v){
         if(mCurrentReminderUri == null){
-            Toast.makeText(this, "click again on the reminder list to set time alarm", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "برای تنظیم زمان دوباره روی لیست یادآوری رویداد ها کلیک کنید", Toast.LENGTH_LONG).show();
             return;
         }
         Calendar now = Calendar.getInstance();
@@ -244,7 +242,7 @@ public class AddReminderActivity extends AppCompatActivity implements
     // On clicking Date picker
     public void setDate(View v){
         if(mCurrentReminderUri == null){
-            Toast.makeText(this, "click again on the reminder list to set date alarm", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "برای تنظیم تاریخ دوباره روی لیست یادآوری رویداد ها کلیک کنید", Toast.LENGTH_LONG).show();
             return;
         }
         Calendar now = Calendar.getInstance();
@@ -512,11 +510,11 @@ public class AddReminderActivity extends AppCompatActivity implements
             // Show a toast message depending on whether or not the delete was successful.
             if (rowsDeleted == 0) {
                 // If no rows were deleted, then there was an error with the delete.
-                Toast.makeText(this, getString(R.string.editor_delete_reminder_failed),
+                Toast.makeText(this, "خطا در حذف رویداد",
                         Toast.LENGTH_SHORT).show();
             } else {
                 // Otherwise, the delete was successful and we can display a toast.
-                Toast.makeText(this, getString(R.string.editor_delete_reminder_successful),
+                Toast.makeText(this, "رویداد با موفقیت حذف شد",
                         Toast.LENGTH_SHORT).show();
             }
         }
@@ -528,13 +526,6 @@ public class AddReminderActivity extends AppCompatActivity implements
     // On clicking the save button
     public void saveReminder(){
 
-     /*   if (mCurrentReminderUri == null ) {
-            // Since no fields were modified, we can return early without creating a new reminder.
-            // No need to create ContentValues and no need to do any ContentProvider operations.
-            return;
-        }
-*/
-
         ContentValues values = new ContentValues();
 
         values.put(AlarmReminderContract.AlarmReminderEntry.KEY_TITLE, mTitle);
@@ -544,7 +535,6 @@ public class AddReminderActivity extends AppCompatActivity implements
         values.put(AlarmReminderContract.AlarmReminderEntry.KEY_REPEAT_NO, mRepeatNo);
         values.put(AlarmReminderContract.AlarmReminderEntry.KEY_REPEAT_TYPE, mRepeatType);
         values.put(AlarmReminderContract.AlarmReminderEntry.KEY_ACTIVE, mActive);
-
 
         // Set up calender for creating the notification
         mCalendar.set(Calendar.MONTH, --mMonth);
@@ -577,11 +567,11 @@ public class AddReminderActivity extends AppCompatActivity implements
             // Show a toast message depending on whether or not the insertion was successful.
             if (newUri == null) {
                 // If the new content URI is null, then there was an error with insertion.
-                Toast.makeText(this, getString(R.string.editor_insert_reminder_failed),
+                Toast.makeText(this, "خطا در ثبت رویداد",
                         Toast.LENGTH_SHORT).show();
             } else {
                 // Otherwise, the insertion was successful and we can display a toast.
-                Toast.makeText(this, getString(R.string.editor_insert_reminder_successful),
+                Toast.makeText(this, "رویداد با موفقیت ثبت شد",
                         Toast.LENGTH_SHORT).show();
             }
         } else {
@@ -591,11 +581,11 @@ public class AddReminderActivity extends AppCompatActivity implements
             // Show a toast message depending on whether or not the update was successful.
             if (rowsAffected == 0) {
                 // If no rows were affected, then there was an error with the update.
-                Toast.makeText(this, "There was an error with the update",
+                Toast.makeText(this, "خطا در بروز رسانی",
                         Toast.LENGTH_SHORT).show();
             } else {
                 // Otherwise, the update was successful and we can display a toast.
-                Toast.makeText(this, "Update was successful",
+                Toast.makeText(this, "بروز رسانی با موففیت انجام شد",
                         Toast.LENGTH_SHORT).show();
             }
         }
@@ -607,15 +597,7 @@ public class AddReminderActivity extends AppCompatActivity implements
             } else if (mRepeat.equals("false")) {
                 new AlarmScheduler().setAlarm(getApplicationContext(), selectedTimestamp, mCurrentReminderUri);
             }
-
-            //Toast.makeText(this, "Alarm time is " + selectedTimestamp ,
-                    //Toast.LENGTH_LONG).show();
         }
-
-        // Create toast to confirm new reminder
-       // Toast.makeText(getApplicationContext(), "Saved",
-               // Toast.LENGTH_SHORT).show();
-
     }
 
     // On pressing the back button
@@ -624,10 +606,6 @@ public class AddReminderActivity extends AppCompatActivity implements
         super.onBackPressed();
 
     }
-
-
-
-
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
 
@@ -677,8 +655,6 @@ public class AddReminderActivity extends AppCompatActivity implements
             String repeatType = cursor.getString(repeatTypeColumnIndex);
             String active = cursor.getString(activeColumnIndex);
 
-
-
             // Update the views on the screen with the values from the database
             mTitleText.setText(title);
             mDateText.setText(date);
@@ -698,9 +674,7 @@ public class AddReminderActivity extends AppCompatActivity implements
             } else if (repeat.equals("true")) {
                 mRepeatSwitch.setChecked(true);
             }
-
         }
-
 
     }
 

@@ -31,7 +31,7 @@ public class AlarmCursorAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.event_item, parent, false);
+        return LayoutInflater.from(context).inflate(R.layout.alarm_reminder_item, parent, false);
     }
 
     @Override

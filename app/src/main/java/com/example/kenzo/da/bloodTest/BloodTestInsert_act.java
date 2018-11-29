@@ -3,11 +3,13 @@ package com.example.kenzo.da.bloodTest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kenzo.da.DatabaseHelper;
@@ -20,8 +22,11 @@ public class BloodTestInsert_act extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.blood_test_insert_act);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        ((TextView)findViewById(R.id.action_bar_title)).setText("آزمایش ها");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         myDb = new DatabaseHelper(this);
         b = new int[29];
 

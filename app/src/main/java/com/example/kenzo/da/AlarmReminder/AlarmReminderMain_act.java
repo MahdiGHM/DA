@@ -1,38 +1,33 @@
 package com.example.kenzo.da.AlarmReminder;
 
-import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.app.NavUtils;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.kenzo.da.AlarmReminder.data.AlarmReminderContract;
-import com.example.kenzo.da.AlarmReminder.data.AlarmReminderDbHelper;
 import com.example.kenzo.da.R;
 
 public class AlarmReminderMain_act extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private FloatingActionButton mAddReminderButton;
-    private Toolbar mToolbar;
     AlarmCursorAdapter mCursorAdapter;
-    AlarmReminderDbHelper alarmReminderDbHelper = new AlarmReminderDbHelper(this);
     ListView reminderListView;
-    ProgressDialog prgDialog;
-    TextView reminderText;
 
     private String alarmTitle = "";
 
@@ -41,8 +36,11 @@ public class AlarmReminderMain_act extends AppCompatActivity implements LoaderMa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_act);
-
+        setContentView(R.layout.alarm_reminder_act);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        ((TextView)findViewById(R.id.action_bar_title)).setText("رویداد ها");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         reminderListView = (ListView) findViewById(R.id.list);
 
 
@@ -55,30 +53,20 @@ public class AlarmReminderMain_act extends AppCompatActivity implements LoaderMa
         reminderListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-
                 Intent intent = new Intent(AlarmReminderMain_act.this, AddReminderActivity.class);
                 Uri currentVehicleUri = ContentUris.withAppendedId(AlarmReminderContract.AlarmReminderEntry.CONTENT_URI, id);
-                // Set the URI on the data field of the intent
                 intent.setData(currentVehicleUri);
-
                 startActivity(intent);
-
             }
         });
-
-
         mAddReminderButton = (FloatingActionButton) findViewById(R.id.fab);
-
         mAddReminderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addReminderTitle();
             }
         });
-
         getSupportLoaderManager().initLoader(VEHICLE_LOADER, null, this);
-
-
     }
 
     @Override
@@ -142,5 +130,10 @@ public class AlarmReminderMain_act extends AppCompatActivity implements LoaderMa
     }
     public void restartLoader(){
         getSupportLoaderManager().restartLoader(VEHICLE_LOADER, null, this);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        NavUtils.navigateUpFromSameTask(AlarmReminderMain_act.this);
+        return true;
     }
 }

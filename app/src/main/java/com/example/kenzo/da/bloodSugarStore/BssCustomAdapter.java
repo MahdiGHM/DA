@@ -18,7 +18,7 @@ public class BssCustomAdapter extends BaseAdapter {
     private DatabaseHelper myDb;
     private Intent intent;
     private Context context;
-    ArrayList<String[]> data;
+    public ArrayList<String[]> data;
     private LayoutInflater layoutInflater;
 
 

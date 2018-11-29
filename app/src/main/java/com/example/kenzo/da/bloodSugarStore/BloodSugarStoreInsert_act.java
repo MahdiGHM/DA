@@ -3,12 +3,16 @@ package com.example.kenzo.da.bloodSugarStore;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kenzo.da.DatabaseHelper;
@@ -23,12 +27,15 @@ public class BloodSugarStoreInsert_act extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bloodsugar_store_insert_act);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        ((TextView)findViewById(R.id.action_bar_title)).setText("دفترچه ثبت قند خون");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         spinner = (Spinner) findViewById(R.id.spinner_update);
         editText = (EditText) findViewById(R.id.editText_insert) ;
         ArrayAdapter adapter = ArrayAdapter.createFromResource(BloodSugarStoreInsert_act.this,R.array.bloodsugar_store_insert_array,android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         myDb = new DatabaseHelper(this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -54,10 +61,13 @@ public class BloodSugarStoreInsert_act extends AppCompatActivity {
             case R.id.save_reminder:
 
                 if (editText.getText().toString().length() == 0){
-                    editText.setError("Reminder Title cannot be blank!");
-                }
-
-                else {
+                    String estring = "میزان قند خون نباید خالی باشد!";
+                    ForegroundColorSpan fgcspan = new ForegroundColorSpan(getResources().getColor(R.color.white));
+                    SpannableStringBuilder ssbuilder = new SpannableStringBuilder(estring);
+                    ssbuilder.setSpan(fgcspan, 0, estring.length(), 0);
+                    editText.requestFocus();
+                    editText.setError(ssbuilder);
+                } else {
                     boolean isInserted = myDb.insertDataBss(Integer.parseInt(((EditText)(findViewById(R.id.editText_insert))).getText().toString()),spinner.getSelectedItem().toString());
                     if(isInserted) {
                         Toast.makeText(BloodSugarStoreInsert_act.this, "Data Inserted", Toast.LENGTH_SHORT).show();

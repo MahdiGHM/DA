@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.example.kenzo.da.DatabaseHelper;
+
 /**
  * Created by delaroy on 10/25/17.
  */
@@ -34,11 +36,11 @@ public class AlarmReminderProvider extends ContentProvider {
 
     }
 
-    private AlarmReminderDbHelper mDbHelper;
+    private DatabaseHelper mDbHelper;
 
     @Override
     public boolean onCreate() {
-        mDbHelper = new AlarmReminderDbHelper(getContext());
+        mDbHelper = new DatabaseHelper(getContext());
         return true;
     }
 

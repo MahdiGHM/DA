@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -26,6 +29,10 @@ public class BloodTestMain_act extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blood_test_act);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        ((TextView)findViewById(R.id.action_bar_title)).setText("آزمایش ها");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         myDb = new DatabaseHelper(this);
         listView = (ListView) findViewById(R.id.blood_test_list);
         viewAll();
@@ -87,8 +94,49 @@ public class BloodTestMain_act extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Cursor res = myDb.getBTData(Integer.parseInt(((TextView)(view.findViewById(R.id.blood_test))).getText().toString()));
+                int temp[] = new int[30];
+                String s = "";
+                if(res.getCount()== 0){
+                    showMessage("Error","Nothing found");
+                    return false;
+                }
+                while (res.moveToNext()){
+                    s=res.getString(1);
+                    temp[1]=res.getInt(2);
+                    temp[2]=res.getInt(3);
+                    temp[3]=res.getInt(4);
+                    temp[4]=res.getInt(5);
+                    temp[5]=res.getInt(6);
+                    temp[6]=res.getInt(7);
+                    temp[7]=res.getInt(8);
+                    temp[8]=res.getInt(9);
+                    temp[9]=res.getInt(10);
+                    temp[10]=res.getInt(11);
+                    temp[11]=res.getInt(12);
+                    temp[12]=res.getInt(13);
+                    temp[13]=res.getInt(14);
+                    temp[14]=res.getInt(15);
+                    temp[15]=res.getInt(16);
+                    temp[16]=res.getInt(17);
+                    temp[17]=res.getInt(18);
+                    temp[18]=res.getInt(19);
+                    temp[19]=res.getInt(20);
+                    temp[20]=res.getInt(21);
+                    temp[21]=res.getInt(22);
+                    temp[22]=res.getInt(23);
+                    temp[23]=res.getInt(24);
+                    temp[24]=res.getInt(25);
+                    temp[25]=res.getInt(26);
+                    temp[26]=res.getInt(27);
+                    temp[27]=res.getInt(28);
+                    temp[28]=res.getInt(29);
+                    temp[29]=res.getInt(30);
+                }
                 Intent intent = new Intent(BloodTestMain_act.this, BloodTestUpdate_act.class);
                 intent.putExtra("id",((TextView)(view.findViewById(R.id.blood_test))).getText().toString());
+                intent.putExtra("ln",s);
+                intent.putExtra("value",temp);
                 startActivity(intent);
                 return true;
             }
@@ -122,5 +170,10 @@ public class BloodTestMain_act extends AppCompatActivity {
             tempData[3] = res.getString(0);
             data.add(tempData);
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        NavUtils.navigateUpFromSameTask(BloodTestMain_act.this);
+        return true;
     }
 }

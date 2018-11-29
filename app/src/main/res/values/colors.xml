@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#3b9bab</color>
     <color name="colorAccent">#FF4081</color>
     <color name="fab_pressed">#546e7a</color>
+    <color name="white">#FFFFFF</color>
 </resources>

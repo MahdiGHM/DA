@@ -5,10 +5,12 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kenzo.da.DatabaseHelper;
@@ -22,11 +24,15 @@ public class BloodTestUpdate_act extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.blood_test_update);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        ((TextView)findViewById(R.id.action_bar_title)).setText("آزمایش ها");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         myDb = new DatabaseHelper(this);
         editText1 = (EditText) findViewById(R.id.et_lab_name_u);
         editText2 = (EditText) findViewById(R.id.et_date_u);
+        fill();
         b = new int[29];
     }
     public void asign(){
@@ -109,5 +115,38 @@ public class BloodTestUpdate_act extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void fill(){
+        int a[]=getIntent().getIntArrayExtra("value");
+        editText1.setText(getIntent().getStringExtra("ln"));
+        editText2.setText(String.valueOf(a[1]));
+        ((EditText) (findViewById(R.id.et_hba1c_u))).setText(String.valueOf(a[2]));
+        ((EditText) (findViewById(R.id.et_wbc_u))).setText(String.valueOf(a[3]));
+        ((EditText) (findViewById(R.id.et_rbc_u))).setText(String.valueOf(a[4]));
+        ((EditText) (findViewById(R.id.et_hgb_u))).setText(String.valueOf(a[5]));
+        ((EditText) (findViewById(R.id.et_hct_u))).setText(String.valueOf(a[6]));
+        ((EditText) (findViewById(R.id.et_mcv_u))).setText(String.valueOf(a[7]));
+        ((EditText) (findViewById(R.id.et_mch_u))).setText(String.valueOf(a[8]));
+        ((EditText) (findViewById(R.id.et_mchc_u))).setText(String.valueOf(a[9]));
+        ((EditText) (findViewById(R.id.et_platelets_u))).setText(String.valueOf(a[10]));
+        ((EditText) (findViewById(R.id.et_fbs_u))).setText(String.valueOf(a[11]));
+        ((EditText) (findViewById(R.id.et_urea_u))).setText(String.valueOf(a[12]));
+        ((EditText) (findViewById(R.id.et_creatinine_u))).setText(String.valueOf(a[13]));
+        ((EditText) (findViewById(R.id.et_uric_acid_u))).setText(String.valueOf(a[14]));
+        ((EditText) (findViewById(R.id.et_total_cholesterol_u))).setText(String.valueOf(a[15]));
+        ((EditText) (findViewById(R.id.et_triglycerides_u))).setText(String.valueOf(a[16]));
+        ((EditText) (findViewById(R.id.et_hdl_cholesterol_u))).setText(String.valueOf(a[17]));
+        ((EditText) (findViewById(R.id.et_ldl_cholesterol_u))).setText(String.valueOf(a[18]));
+        ((EditText) (findViewById(R.id.et_sgot_u))).setText(String.valueOf(a[19]));
+        ((EditText) (findViewById(R.id.et_sgpt_u))).setText(String.valueOf(a[20]));
+        ((EditText) (findViewById(R.id.et_alkaline_phosphatase_u))).setText(String.valueOf(a[21]));
+        ((EditText) (findViewById(R.id.et_ca_u))).setText(String.valueOf(a[22]));
+        ((EditText) (findViewById(R.id.et_p_u))).setText(String.valueOf(a[23]));
+        ((EditText) (findViewById(R.id.et_fe_u))).setText(String.valueOf(a[24]));
+        ((EditText) (findViewById(R.id.et_vit_d_u))).setText(String.valueOf(a[25]));
+        ((EditText) (findViewById(R.id.et_b12_u))).setText(String.valueOf(a[26]));
+        ((EditText) (findViewById(R.id.et_t3_u))).setText(String.valueOf(a[27]));
+        ((EditText) (findViewById(R.id.et_t4_u))).setText(String.valueOf(a[28]));
+        ((EditText) (findViewById(R.id.et_tsh_u))).setText(String.valueOf(a[29]));
     }
 }
