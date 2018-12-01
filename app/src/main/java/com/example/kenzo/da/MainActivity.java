@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.kenzo.da.AlarmReminder.AlarmReminderMain_act;
+import com.example.kenzo.da.Calories.Calories_act;
 import com.example.kenzo.da.bloodSugarStore.BloodSugarStoreMain_act;
 import com.example.kenzo.da.bloodTest.BloodTestMain_act;
 import com.example.kenzo.da.insulinDose.InsulinDose_act;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button2 : intent = new Intent(MainActivity.this,InsulinDose_act.class); break;
             case R.id.button3 : intent = new Intent(MainActivity.this,BmiCalMain_act.class); break;
             case R.id.button4 : intent = new Intent(MainActivity.this,BloodTestMain_act.class); break;
-            case R.id.button5 : intent = new Intent(MainActivity.this,CarboCal_act.class); break;
+            case R.id.button5 : intent = new Intent(MainActivity.this,Calories_act.class); break;
             case R.id.button6 : intent = new Intent(MainActivity.this,AlarmReminderMain_act.class); break;
             case R.id.button7 : intent = new Intent(MainActivity.this,UsefulArticlesMain_act.class); break;
         }

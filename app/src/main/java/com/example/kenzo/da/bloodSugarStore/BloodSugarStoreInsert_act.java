@@ -70,11 +70,11 @@ public class BloodSugarStoreInsert_act extends AppCompatActivity {
                 } else {
                     boolean isInserted = myDb.insertDataBss(Integer.parseInt(((EditText)(findViewById(R.id.editText_insert))).getText().toString()),spinner.getSelectedItem().toString());
                     if(isInserted) {
-                        Toast.makeText(BloodSugarStoreInsert_act.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BloodSugarStoreInsert_act.this, "اطلاعات ثبت شد", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                     else
-                        Toast.makeText(BloodSugarStoreInsert_act.this,"Data Not Inserted",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BloodSugarStoreInsert_act.this,"خطا در ثبت اطلاعات",Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 return true;
