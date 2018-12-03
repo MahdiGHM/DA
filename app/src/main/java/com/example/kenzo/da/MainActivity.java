@@ -68,13 +68,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "رویداد ها",
             "مطالب مفید"
     };
+    static boolean firstTime = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_act);
-        Intent intent = new Intent(MainActivity.this,Welcome.class);
-        startActivity(intent);
+        if(firstTime){
+            Intent intent = new Intent(MainActivity.this,Welcome.class);
+            startActivity(intent);
+        }
         initView();
         setUpNavigationDrawer();
     }
