@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_act);
-
+        Intent intent = new Intent(MainActivity.this,Welcome.class);
+        startActivity(intent);
         initView();
         setUpNavigationDrawer();
     }
