@@ -5,9 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,10 +14,13 @@ import android.widget.TextView;
 
 import com.example.kenzo.da.DatabaseHelper;
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 
 import java.util.ArrayList;
 
-public class BloodTestMain_act extends AppCompatActivity {
+public class BloodTestMain_act extends BaseThemedActivity {
+
     ListView listView;
     BtCustomAdapter adapter;
     Intent intent;
@@ -29,9 +30,9 @@ public class BloodTestMain_act extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blood_test_act);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("آزمایش ها");
+        setTitle("آزمایش ها");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         myDb = new DatabaseHelper(this);
         listView = (ListView) findViewById(R.id.blood_test_list);

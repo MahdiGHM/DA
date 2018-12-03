@@ -12,18 +12,17 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.kenzo.da.AlarmReminder.data.AlarmReminderContract;
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 
-public class AlarmReminderMain_act extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class AlarmReminderMain_act extends BaseThemedActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private FloatingActionButton mAddReminderButton;
     AlarmCursorAdapter mCursorAdapter;
@@ -37,12 +36,11 @@ public class AlarmReminderMain_act extends AppCompatActivity implements LoaderMa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm_reminder_act);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("رویداد ها");
+        setTitle("رویداد ها");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         reminderListView = (ListView) findViewById(R.id.list);
-
 
         View emptyView = findViewById(R.id.empty_view);
         reminderListView.setEmptyView(emptyView);

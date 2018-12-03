@@ -3,22 +3,20 @@ package com.example.kenzo.da.bloodSugarStore;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kenzo.da.DatabaseHelper;
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 
-public class BloodSugarStoreInsert_act extends AppCompatActivity {
+public class BloodSugarStoreInsert_act extends BaseThemedActivity {
     String time;
     DatabaseHelper myDb;
     Spinner spinner;
@@ -27,13 +25,13 @@ public class BloodSugarStoreInsert_act extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bloodsugar_store_insert_act);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("دفترچه ثبت قند خون");
+        setTitle("دفترچه ثبت قند خون");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         spinner = (Spinner) findViewById(R.id.spinner_update);
         editText = (EditText) findViewById(R.id.editText_insert) ;
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(BloodSugarStoreInsert_act.this,R.array.bloodsugar_store_insert_array,android.R.layout.simple_spinner_dropdown_item);
+        SpinnerAdapter adapter = new SpinnerAdapter(this);
         spinner.setAdapter(adapter);
         myDb = new DatabaseHelper(this);
     }

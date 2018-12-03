@@ -11,13 +11,12 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -30,6 +29,8 @@ import android.widget.Toast;
 import com.example.kenzo.da.AlarmReminder.data.AlarmReminderContract;
 import com.example.kenzo.da.AlarmReminder.reminder.AlarmScheduler;
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
@@ -37,7 +38,7 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.Calendar;
 
-public class AddReminderActivity extends AppCompatActivity implements
+public class AddReminderActivity extends BaseThemedActivity implements
         TimePickerDialog.OnTimeSetListener,
         DatePickerDialog.OnDateSetListener, LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -57,7 +58,6 @@ public class AddReminderActivity extends AppCompatActivity implements
     private String mRepeatNo;
     private String mRepeatType;
     private String mActive;
-
     private Uri mCurrentReminderUri;
     private boolean mVehicleHasChanged = false;
 
@@ -69,7 +69,6 @@ public class AddReminderActivity extends AppCompatActivity implements
     private static final String KEY_REPEAT_NO = "repeat_no_key";
     private static final String KEY_REPEAT_TYPE = "repeat_type_key";
     private static final String KEY_ACTIVE = "active_key";
-
 
     // Constant values in milliseconds
     private static final long milMinute = 60000L;
@@ -90,9 +89,9 @@ public class AddReminderActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm_reminder_insert_act);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("رویداد ها");
+        setTitle("رویداد ها");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
 
         Intent intent = getIntent();
         mCurrentReminderUri = intent.getData();
@@ -202,10 +201,8 @@ public class AddReminderActivity extends AppCompatActivity implements
             mFAB2.setVisibility(View.VISIBLE);
         }
 
-        getSupportActionBar().setTitle(R.string.title_activity_add_reminder);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
 
     }
 
@@ -447,6 +444,16 @@ public class AddReminderActivity extends AppCompatActivity implements
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            deleteReminder();
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     private void showUnsavedChangesDialog(

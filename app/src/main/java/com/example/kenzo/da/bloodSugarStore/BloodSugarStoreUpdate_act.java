@@ -6,21 +6,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kenzo.da.DatabaseHelper;
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 
-public class BloodSugarStoreUpdate_act extends AppCompatActivity {
+public class BloodSugarStoreUpdate_act extends BaseThemedActivity {
     EditText editText;
     Button button;
     Spinner spinner;
@@ -29,14 +27,14 @@ public class BloodSugarStoreUpdate_act extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bloodsugar_store_update_act);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("دفترچه ثبت قند خون");
+        setTitle("دفترچه ثبت قند خون");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         myDb = new DatabaseHelper(this);
         spinner = (Spinner) findViewById(R.id.spinner_update);
         editText = (EditText) findViewById(R.id.editText_update);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(BloodSugarStoreUpdate_act.this,R.array.bloodsugar_store_insert_array,android.R.layout.simple_spinner_dropdown_item);
+        SpinnerAdapter adapter = new SpinnerAdapter(this);
         spinner.setAdapter(adapter);
         editText.setText(getIntent().getStringExtra("value"));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

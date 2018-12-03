@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="fab_pressed">#546e7a</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+	<color name="colorPrimaryLightDefault">#000000</color>
+    <color name="colorAccentLightDefault">#E91E63</color>
+
+    <color name="colorPrimaryDarkDefault">#37474F</color>
+    <color name="colorAccentDarkDefault">#2196F3</color>
+
+    <color name="colorLightAccent">#0076ff</color>
 </resources>

@@ -9,13 +9,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launch"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.NoActionBar"
         tools:replace="android:icon">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +33,7 @@
             android:name=".BmiCalMain_act"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".CarboCal_act"
+            android:name=".Calories.Calories_act"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AlarmReminder.AlarmReminderMain_act"
@@ -40,9 +41,12 @@
         <activity
             android:name=".insulinDose.InsulinDose_act"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".usefulArticles.UsefulArticlesMain_act"
+        <activity android:name=".BenefitInfo.UsefulArticlesMain_act"
+            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".BenefitInfo.UsefulArticlesDetail_act"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".BenefitInfo.UsefulArticlesMain_act"/>
         <activity
             android:name=".bloodSugarStore.BloodSugarStoreInsert_act"
             android:parentActivityName=".bloodSugarStore.BloodSugarStoreMain_act" />
@@ -67,8 +71,7 @@
         <activity
             android:name=".AlarmReminder.AddReminderActivity"
             android:label="@string/title_activity_add_reminder"
-            android:parentActivityName=".AlarmReminder.AlarmReminderMain_act"
-            android:theme="@style/AppTheme">
+            android:parentActivityName=".AlarmReminder.AlarmReminderMain_act">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -84,9 +87,10 @@
         <service
             android:name=".AlarmReminder.reminder.ReminderAlarmService"
             android:exported="false" />
-
-        <activity android:name=".usefulArticles.UsefulArticlesView_act"
-            android:parentActivityName=".usefulArticles.UsefulArticlesMain_act"></activity>
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:launchMode="singleInstance"
+            android:label="Settings"/>
     </application>
 
 </manifest>

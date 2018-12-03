@@ -4,23 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 
-public class InsulinDose_act extends AppCompatActivity {
+public class InsulinDose_act extends BaseThemedActivity {
     Intent intent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.insulin_dose_act);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("محاسبه دوز انسولین");
+        setTitle("محاسبه دوز انسولین");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     public void runInsulinActivity(View view){

@@ -5,18 +5,17 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kenzo.da.DatabaseHelper;
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 
-public class BloodTestUpdate_act extends AppCompatActivity {
+public class BloodTestUpdate_act extends BaseThemedActivity {
     EditText editText1;
     EditText editText2;
     DatabaseHelper myDb;
@@ -25,9 +24,9 @@ public class BloodTestUpdate_act extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blood_test_update);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("آزمایش ها");
+        setTitle("آزمایش ها");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         myDb = new DatabaseHelper(this);
         editText1 = (EditText) findViewById(R.id.et_lab_name_u);

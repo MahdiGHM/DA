@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 import com.example.kenzo.da.Calories.fragments.foodCategory;
 import com.example.kenzo.da.R;
+import com.example.kenzo.da.settings.BaseThemedActivity;
+import com.example.kenzo.da.settings.ConfigTheme;
 
-public class Calories_act extends AppCompatActivity {
+public class Calories_act extends BaseThemedActivity {
     public FragmentManager fragmentManager;
     private foodCategory foodCategory;
 
@@ -19,9 +18,9 @@ public class Calories_act extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calories_act);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((TextView)findViewById(R.id.action_bar_title)).setText("کربوهیدرات شمار");
+        setTitle("کالری مواد غذایی");
+        ConfigTheme configTheme = new ConfigTheme(this);
+        configTheme.configIt();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         fragmentManager=getSupportFragmentManager();
         foodCategory=new foodCategory();

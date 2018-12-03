@@ -63,12 +63,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+
         db.execSQL("create table " +TABLE_NAME_BSS+" (ID INTEGER PRIMARY KEY AUTOINCREMENT,Value_of_blood_sugar INTEGER,Date TEXT DEFAULT (DATE('now','localtime')),Timespan TEXT,Time TEXT)");
+
+
         db.execSQL("create table " +TABLE_NAME_BT+" (ID INTEGER PRIMARY KEY AUTOINCREMENT,Lab_name TEXT,Date TEXT,HbA1C INTEGER ,WBC INTEGER,RBC INTEGER" +
                 ",HGB INTEGER,HCT INTEGER,MCV INTEGER,MCH INTEGER,MCHC INTEGER,PLATELETS INTEGER,FBS INTEGER,Urea INTEGER,Creatinine INTEGER,Uric_acid INTEGER,Total_cholesterol INTEGER" +
                 ",Triglycerides INTEGER,HDL_cholesterol INTEGER,LDL_cholesterol INTEGER,SGOT INTEGER,SGPT INTEGER,Alkaline_phosphatase INTEGER,Ca INTEGER,P INTEGER,Fe INTEGER,VitD INTEGER,B12 INTEGER" +
                 ",T3 INTEGER,T4 INTEGER,TSH INTEGER)");
-        String SQL_CREATE_ALARM_TABLE =  "CREATE TABLE " + AlarmReminderContract.AlarmReminderEntry.TABLE_NAME + " ("
+
+
+        db.execSQL("CREATE TABLE " + AlarmReminderContract.AlarmReminderEntry.TABLE_NAME + " ("
                 + AlarmReminderContract.AlarmReminderEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + AlarmReminderContract.AlarmReminderEntry.KEY_TITLE + " TEXT, "
                 + AlarmReminderContract.AlarmReminderEntry.KEY_DATE + " TEXT, "
@@ -76,8 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + AlarmReminderContract.AlarmReminderEntry.KEY_REPEAT + " TEXT, "
                 + AlarmReminderContract.AlarmReminderEntry.KEY_REPEAT_NO + " TEXT, "
                 + AlarmReminderContract.AlarmReminderEntry.KEY_REPEAT_TYPE + " TEXT, "
-                + AlarmReminderContract.AlarmReminderEntry.KEY_ACTIVE + " TEXT " + " );";
-        db.execSQL(SQL_CREATE_ALARM_TABLE);
+                + AlarmReminderContract.AlarmReminderEntry.KEY_ACTIVE + " TEXT " + " );");
     }
 
     @Override

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -23,7 +28,7 @@
                 android:text="Lab name :"
                 android:layout_weight="1" />
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_lab_name_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -58,7 +63,7 @@
                 android:text="Date :"
                 android:layout_weight="1" />
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_date_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -92,7 +97,7 @@
                 android:text="HbA1C :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_hba1c_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -132,7 +137,7 @@
                 android:layout_weight="1"
                 android:text="WBC :" />
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_wbc_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -170,7 +175,7 @@
                 android:text="RBC :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_rbc_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -208,7 +213,7 @@
                 android:text="HGB :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_hgb_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -245,7 +250,7 @@
                 android:text="HCT :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_hct_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -282,7 +287,7 @@
                 android:text="MCV :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_mcv_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -319,7 +324,7 @@
                 android:text="MCH :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_mch_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -356,7 +361,7 @@
                 android:text="MCHC :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_mchc_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -393,7 +398,7 @@
                 android:text="PLATELETS :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_platelets_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -431,7 +436,7 @@
                 android:text="FBS :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_fbs_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -468,7 +473,7 @@
                 android:text="Urea :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_urea_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -505,7 +510,7 @@
                 android:text="Creatinine :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_creatinine_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -542,7 +547,7 @@
                 android:text="Uric acid :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_uric_acid_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -579,7 +584,7 @@
                 android:text="Total cholesterol :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_total_cholesterol_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -616,7 +621,7 @@
                 android:text="Triglycerides :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_triglycerides_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -653,7 +658,7 @@
                 android:text="HDL cholesterol :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_hdl_cholesterol_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -690,7 +695,7 @@
                 android:text="LDL cholesterol :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_ldl_cholesterol_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -727,7 +732,7 @@
                 android:text="SGOT :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_sgot_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -764,7 +769,7 @@
                 android:text="SGPT :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_sgpt_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -801,7 +806,7 @@
                 android:text="Alkaline phosphatase :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_alkaline_phosphatase_u"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -838,7 +843,7 @@
                 android:text="Ca :"
                 android:layout_weight="1" />
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_ca_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -875,7 +880,7 @@
                 android:text="P :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_p_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -912,7 +917,7 @@
                 android:text="Fe :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_fe_u"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -949,7 +954,7 @@
                 android:text="Vit D :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_vit_d_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -986,7 +991,7 @@
                 android:text="B12 :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_b12_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1023,7 +1028,7 @@
                 android:text="T3 :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_t3_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1060,7 +1065,7 @@
                 android:text="T4 :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_t4_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1098,7 +1103,7 @@
                 android:text="TSH :"
                 android:layout_weight="1"/>
 
-            <EditText
+            <com.decoder.hamedpa.fastedittext.FView
                 android:id="@+id/et_tsh_u"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1122,6 +1127,5 @@
         </TableRow>
 
     </TableLayout>
-
-
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

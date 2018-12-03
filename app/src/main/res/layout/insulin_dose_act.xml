@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button15"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="15dp"
-        android:onClick="runInsulinActivity"
-        android:text="نسبت انسولین به کربوهیدارت" />
+        <info.hoang8f.widget.FButton
+            android:id="@+id/button12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button15"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:onClick="runInsulinActivity"
+            android:text="نسبت انسولین به کربوهیدارت"
+            android:textColor="@color/mdtp_white" />
 
-    <Button
-        android:id="@+id/button15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="runInsulinActivity"
-        android:layout_centerInParent="true"
-        android:text="تاثیر هر یک واحد انسولین نسبت به قند خون" />
+        <info.hoang8f.widget.FButton
+            android:id="@+id/button15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="runInsulinActivity"
+            android:text="تاثیر هر یک واحد انسولین نسبت به قند خون"
+            android:textColor="@color/mdtp_white" />
 
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button15"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="runInsulinActivity"
-        android:text="انسولین اصلاحی" />
-</RelativeLayout>
+        <info.hoang8f.widget.FButton
+            android:id="@+id/button16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button15"
+            android:layout_marginStart="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="runInsulinActivity"
+            android:text="انسولین اصلاحی"
+            android:textColor="@color/mdtp_white" />
+    </RelativeLayout>
+</LinearLayout>

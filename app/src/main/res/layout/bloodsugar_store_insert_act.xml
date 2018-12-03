@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.decoder.hamedpa.fastedittext.FView
         android:id="@+id/editText_insert"
-        android:layout_width="93dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="15dp"
-        android:layout_toStartOf="@+id/textView"
+        android:layout_marginTop="167dp"
+        android:layout_marginRight="11dp"
+        android:layout_toLeftOf="@+id/textView"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="18dp"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="59dp"
-        android:layout_marginRight="15dp"
-        android:layout_toLeftOf="@+id/textView" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textView"
@@ -78,4 +77,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="38dp" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>
